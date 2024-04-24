@@ -1,107 +1,29 @@
 document.addEventListener("DOMContentLoaded", function(event){ 
-h_play = document.querySelector('#hud_play');
+assetPath = './tracks/';
+slapSound = 'tr1203055.wav';
+
 build_player();
 
-h_play.addEventListener('click', e => {_trackPlay();});
-
+//h_play = document.querySelector('#hud_play');
+//h_play.addEventListener('click', e => {_trackPlay();});
 
 function build_player(){
-	ic_play = document.querySelector('#player');
-	ic_play2 = document.querySelector('#player2');
-	ic_play3 = document.querySelector('#player3');
-	if(ic_play){
+	mPlayer = document.querySelector('#player');
+	if(mPlayer){
 		var can = document.querySelector('.media_tumb');
-		mode = ic_play.getAttribute('mode');
+		mode = mPlayer.getAttribute('mode');
 		switch(mode){
 			case 'min':
-				graf_canva(can);
+				//graf_canva(can);
 				console.log('min');
 				break;
 			case 'max':
-				graf_canva(can);
+				//graf_canva(can);
 				console.log('max')
 				break;
 		}
-	}
-	if(ic_play2){
-		var can = document.querySelector('.media_tumb2');
-		mode = ic_play2.getAttribute('mode');
-		switch(mode){
-			case 'min':
-				graf_canva(can);
-				console.log('min');
-				break;
-			case 'max':
-				graf_canva(can);
-				console.log('max')
-				break;
-		}
-	}
-	if(ic_play3){
-		var can = document.querySelector('.media_tumb3');
-		mode = ic_play3.getAttribute('mode');
-		switch(mode){
-			case 'min':
-				graf_canva(can);
-				console.log('min');
-				break;
-			case 'max':
-				graf_canva(can);
-				console.log('max')
-				break;
-		}
-	}
+		
+	}	
 }
-function graf_canva(can){
-	canvas = can;
-	const { width, height } = canvas.getBoundingClientRect();
-	ctx = canvas.getContext('2d');
-	canvas.width  = width; //900;
-	canvas.height = height; //75;	
-	/*
-	50 для вверха
-	25 для низа
-	*/
-	console.log(width+'-=-'+height);
-	for(var xi = 1; xi <= canvas.width; xi+=4){
-		ctx.beginPath();
-		ctx.lineWidth = 2.1;
-		imax = 75;
-		imin = 45;
-		ctx.strokeStyle = "#2b2b2b";
-		pilk = Math.ceil(Math.random()*(imax - imin))+imin; //рандом число от 55 - 90
-		punch = canvas.height-pilk;
-		//console.log(pilk); //25
-		//console.log(punch); //50
-		ctx.moveTo(xi+2, canvas.height-25);
-		ctx.lineTo(xi+2, punch);
-		ctx.closePath();
-		ctx.stroke();
-	}
-	for(var xj = 1; xj <= canvas.width; xj+=4){
-		ctx.beginPath();
-		ctx.lineWidth = 2.2;
-		jmax = 22;
-		jmin = 5;
-		ctx.strokeStyle = "rgb(190 190 190 / 85%)";
-		tilk = Math.round(Math.random()*(jmax - jmin))+jmin; //рандом число от 10 - 25
-		tunch = canvas.height-tilk;
-		//console.log(tunch);
-		ctx.moveTo(xj+2, canvas.height-25);
-		ctx.lineTo(xj+2, tunch);
-		ctx.closePath();
-		ctx.stroke();
-	}
-}
-function _trackPlay(){
-	ico_button = document.querySelector('.tr_play');
-	cn_pl = ico_button.classList.toggle('play');
-	if(cn_pl){
-		var check_im = ico_button.querySelector('img').setAttribute('src','img/pause.png');
-		//v_vid.play();
-	}else{
-		var check_im = ico_button.querySelector('img').setAttribute('src','img/play.png');
-		//v_vid.pause();
-	}
-}
+
 });

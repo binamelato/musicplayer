@@ -1,3 +1,7 @@
+:root{
+	--color_text_theme2:#ff009a;
+	color: var(--tg-theme-text-color);
+}
 body{
 font-family:century gothic;
 }
@@ -15,6 +19,8 @@ width:100%;
 max-width:1320px;
 margin:0 auto;
 }
+
+
 #rewards{width:350px;height:45px;box-shadow:0 0 0px #454545;padding:10px 20px 10px;}
 #tags{width:450px;box-shadow:0 0 0px #454545;font-size:.95em;color:#000;padding:25px 0px 10px;}
 .flx{display:flex;}
@@ -29,7 +35,6 @@ background: linear-gradient(to bottom, rgba(240, 211, 92, 1.0), rgba(238, 120, 9
 .pl_form{
 width:100%;
 max-width:920px;
-border-right:0px solid #ccc
 }
 .pl_band{
 width:100%;
